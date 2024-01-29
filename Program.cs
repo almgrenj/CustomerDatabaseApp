@@ -835,7 +835,7 @@ class Program
             Price = price  // Sätter priset för orderartikeln
         };
         orderItemService.AddOrderItem(orderItem);
-        Console.WriteLine("Orderartikel tillagd!");
+        Console.WriteLine("Orderartikel tillagd!");d
     }
 
 
