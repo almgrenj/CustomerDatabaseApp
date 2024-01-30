@@ -1,23 +1,23 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 public class CustomerRepository : ICustomerRepository
 {
-    private readonly CustomerDbContext _context;
+    private readonly DataContext _context;
 
-    public CustomerRepository(CustomerDbContext context)
+    public CustomerRepository(DataContext context)
     {
         _context = context;
     }
 
-    public Customer GetById(int id)
+    public CustomerEntity GetById(int id)
     {
         var customerEntity = _context.Customers.Find(id);
         if (customerEntity != null)
         {
-            return new Customer
+            return new CustomerEntity
             {
                 CustomerId = customerEntity.CustomerId,
                 Name = customerEntity.Name,
@@ -33,10 +33,10 @@ public class CustomerRepository : ICustomerRepository
 
 
 
-    public IEnumerable<Customer> GetAll()
+    public IEnumerable<CustomerEntity> GetAll()
     {
         return _context.Customers
-               .Select(c => new Customer
+               .Select(c => new CustomerEntity
                {
                    CustomerId = c.CustomerId,
                    Name = c.Name,
@@ -47,13 +47,13 @@ public class CustomerRepository : ICustomerRepository
                .ToList();
     }
 
-    public void Add(Customer customer)
+    public void Add(CustomerEntity customer)
     {
         _context.Customers.Add(customer);
         _context.SaveChanges();
     }
 
-    public void Update(Customer customer)
+    public void Update(CustomerEntity customer)
     {
         var existingCustomer = _context.Customers.Find(customer.CustomerId);
         if (existingCustomer != null)

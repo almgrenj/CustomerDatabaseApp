@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CustomerDatabaseApp.Models
+namespace CustomerDatabaseApp.Entities
 {
-    public class Supplier
+    public class SupplierEntity
     {
         [Key]
         public int SupplierId { get; set; }
@@ -11,8 +11,8 @@ namespace CustomerDatabaseApp.Models
         [MaxLength(100)]
         public string Name { get; set; }
 
-        public string? Address { get; set; } 
+        public string? Address { get; set; }
 
-        public string? ContactNumber { get; set; } 
+        public string? ContactNumber { get; set; }
     }
 }

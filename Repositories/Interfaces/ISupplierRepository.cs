@@ -1,14 +1,14 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using System.Collections.Generic;
 
 namespace CustomerDatabaseApp.Repositories.Interfaces
 {
     public interface ISupplierRepository
     {
-        void Add(Supplier supplier);
-        Supplier GetById(int id);
-        void Update(Supplier supplier);
+        void Add(SupplierEntity supplier);
+        SupplierEntity GetById(int id);
+        void Update(SupplierEntity supplier);
         void Delete(int id);
-        IEnumerable<Supplier> GetAll();
+        IEnumerable<SupplierEntity> GetAll();
     }
 }

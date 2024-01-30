@@ -1,4 +1,4 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using CustomerDatabaseApp.Services;
 
@@ -11,17 +11,17 @@ public class CustomerService : ICustomerService
         _customerRepository = customerRepository;
     }
 
-    public void AddCustomer(Customer customer)
+    public void AddCustomer(CustomerEntity customer)
     {
         _customerRepository.Add(customer);
     }
 
-    public Customer GetCustomer(int id)
+    public CustomerEntity GetCustomer(int id)
     {
         return _customerRepository.GetById(id);
     }
 
-    public void UpdateCustomer(Customer customer)
+    public void UpdateCustomer(CustomerEntity customer)
     {
         _customerRepository.Update(customer);
     }
@@ -31,7 +31,7 @@ public class CustomerService : ICustomerService
         _customerRepository.Delete(id);
     }
 
-    public IEnumerable<Customer> GetAllCustomers()
+    public IEnumerable<CustomerEntity> GetAllCustomers()
     {
         return _customerRepository.GetAll();
     }

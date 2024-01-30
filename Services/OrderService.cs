@@ -1,6 +1,6 @@
-﻿using CustomerDatabaseApp.Models;
-using CustomerDatabaseApp.Services;
+﻿using CustomerDatabaseApp.Services;
 using CustomerDatabaseApp.Repositories.Interfaces;
+using CustomerDatabaseApp.Entities;
 
 namespace CustomerDatabaseApp.Services
 {
@@ -13,10 +13,10 @@ namespace CustomerDatabaseApp.Services
         _orderRepository = orderRepository;
     }
 
-    public void AddOrder(Order order) => _orderRepository.Add(order);
-    public Order GetOrder(int id) => _orderRepository.GetById(id);
-    public void UpdateOrder(Order order) => _orderRepository.Update(order);
+    public void AddOrder(OrderEntity order) => _orderRepository.Add(order);
+    public OrderEntity GetOrder(int id) => _orderRepository.GetById(id);
+    public void UpdateOrder(OrderEntity order) => _orderRepository.Update(order);
     public void DeleteOrder(int id) => _orderRepository.Delete(id);
-    public IEnumerable<Order> GetAllOrders() => _orderRepository.GetAll();
+    public IEnumerable<OrderEntity> GetAllOrders() => _orderRepository.GetAll();
 }
 }

@@ -1,14 +1,14 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using System.Collections.Generic;
 
 namespace CustomerDatabaseApp.Services
 {
     public interface IOrderItemService
     {
-        void AddOrderItem(OrderItem orderItem);
-        OrderItem GetOrderItem(int id);
-        void UpdateOrderItem(OrderItem orderItem);
+        void AddOrderItem(OrderItemEntity orderItem);
+        OrderItemEntity GetOrderItem(int id);
+        void UpdateOrderItem(OrderItemEntity orderItem);
         void DeleteOrderItem(int id);
-        IEnumerable<OrderItem> GetAllOrderItems();
+        IEnumerable<OrderItemEntity> GetAllOrderItems();
     }
 }

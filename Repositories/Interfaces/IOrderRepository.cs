@@ -1,15 +1,15 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using System.Collections.Generic;
 
-namespace CustomerDatabaseApp.Repositories.Interfaces 
+namespace CustomerDatabaseApp.Repositories.Interfaces
 {
 
     public interface IOrderRepository
 {
-    Order GetById(int id);
-    IEnumerable<Order> GetAll();
-    void Add(Order order);
-    void Update(Order order);
+    OrderEntity GetById(int id);
+    IEnumerable<OrderEntity> GetAll();
+    void Add(OrderEntity order);
+    void Update(OrderEntity order);
     void Delete(int id);
 }
 }

@@ -1,28 +1,28 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 public class SupplierRepository : ISupplierRepository
 {
-    private readonly CustomerDbContext _context;
+    private readonly DataContext _context;
 
-    public SupplierRepository(CustomerDbContext context)
+    public SupplierRepository(DataContext context)
     {
         _context = context;
     }
 
-    public Supplier GetById(int id) => _context.Suppliers.Find(id);
+    public SupplierEntity GetById(int id) => _context.Suppliers.Find(id);
 
-    public IEnumerable<Supplier> GetAll() => _context.Suppliers.ToList();
+    public IEnumerable<SupplierEntity> GetAll() => _context.Suppliers.ToList();
 
-    public void Add(Supplier supplier)
+    public void Add(SupplierEntity supplier)
     {
         _context.Suppliers.Add(supplier);
         _context.SaveChanges();
     }
 
-    public void Update(Supplier supplier)
+    public void Update(SupplierEntity supplier)
     {
         _context.Suppliers.Update(supplier);
         _context.SaveChanges();

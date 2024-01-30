@@ -1,26 +1,26 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
 public class ProductRepository : IProductRepository
 {
-    private readonly CustomerDbContext _context;
+    private readonly DataContext _context;
 
-    public ProductRepository(CustomerDbContext context)
+    public ProductRepository(DataContext context)
     {
         _context = context;
     }
 
-    public Product GetById(int id) => _context.Products.Find(id);
+    public ProductEntity GetById(int id) => _context.Products.Find(id);
 
-    public IEnumerable<Product> GetAll() => _context.Products.ToList();
+    public IEnumerable<ProductEntity> GetAll() => _context.Products.ToList();
 
-    public void Add(Product product)
+    public void Add(ProductEntity product)
     {
         _context.Products.Add(product);
         _context.SaveChanges();
     }
 
-    public void Update(Product product)
+    public void Update(ProductEntity product)
     {
         _context.Products.Update(product);
         _context.SaveChanges();

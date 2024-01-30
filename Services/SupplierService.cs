@@ -1,4 +1,4 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using CustomerDatabaseApp.Services;
 using System.Collections.Generic;
@@ -12,17 +12,17 @@ public class SupplierService : ISupplierService
         _supplierRepository = supplierRepository;
     }
 
-    public void AddSupplier(Supplier supplier)
+    public void AddSupplier(SupplierEntity supplier)
     {
         _supplierRepository.Add(supplier);
     }
 
-    public Supplier GetSupplier(int id)
+    public SupplierEntity GetSupplier(int id)
     {
         return _supplierRepository.GetById(id);
     }
 
-    public void UpdateSupplier(Supplier supplier)
+    public void UpdateSupplier(SupplierEntity supplier)
     {
         _supplierRepository.Update(supplier);
     }
@@ -32,7 +32,7 @@ public class SupplierService : ISupplierService
         _supplierRepository.Delete(id);
     }
 
-    public IEnumerable<Supplier> GetAllSuppliers()
+    public IEnumerable<SupplierEntity> GetAllSuppliers()
     {
         return _supplierRepository.GetAll();
     }

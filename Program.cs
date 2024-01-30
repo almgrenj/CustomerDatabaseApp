@@ -1,10 +1,10 @@
 ﻿using CustomerDatabaseApp.Services;
-using CustomerDatabaseApp.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using CustomerDatabaseApp.Repositories.Interfaces;
+using CustomerDatabaseApp.Entities;
 
 class Program
 {
@@ -58,7 +58,7 @@ class Program
     }
     private static void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContext<CustomerDbContext>(options =>
+        services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(@"Server=192.168.50.168,1433;Database=testingdb;User Id=sa;Password=NewP@ssw0rd;Encrypt=False;TrustServerCertificate=True;"));
 
       
@@ -128,7 +128,7 @@ class Program
             Console.Write("Ange kundens telefonnummer: ");
             var phone = Console.ReadLine();
 
-            var newCustomer = new Customer
+            var newCustomer = new CustomerEntity
             {
                 Name = name,
                 Email = email,
@@ -295,7 +295,7 @@ class Program
         Console.Write("Ange leveransadress för ordern: ");
         var shippingAddress = Console.ReadLine();
 
-        var order = new Order
+        var order = new OrderEntity
         {
             CustomerId = customerId,
             OrderDate = DateTime.Now,
@@ -443,7 +443,7 @@ class Program
             return;
         }
 
-        var product = new Product { Name = name, Price = price, Description = description, CategoryId = categoryId };
+        var product = new ProductEntity { Name = name, Price = price, Description = description, CategoryId = categoryId };
         productService.AddProduct(product);
         Console.WriteLine("Produkt tillagd!");
     }
@@ -572,7 +572,7 @@ class Program
         Console.Write("Ange kategorinamn: ");
         string categoryName = Console.ReadLine();
 
-        Category newCategory = new Category { Name = categoryName };
+        CategoryEntity newCategory = new CategoryEntity { Name = categoryName };
         categoryService.AddCategory(newCategory);
         Console.WriteLine("Kategori tillagd!");
     }
@@ -679,7 +679,7 @@ class Program
         Console.Write("Ange leverantörs telefonnr: ");
         string supplierContactNumber = Console.ReadLine();
 
-        Supplier newSupplier = new Supplier
+        SupplierEntity newSupplier = new SupplierEntity
         {
             Name = supplierName,
             Address = supplierAddress,
@@ -827,7 +827,7 @@ class Program
             return;
         }
 
-        var orderItem = new OrderItem
+        var orderItem = new OrderItemEntity
         {
             OrderId = orderId,
             ProductId = productId,

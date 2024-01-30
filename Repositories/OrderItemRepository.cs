@@ -1,28 +1,28 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 public class OrderItemRepository : IOrderItemRepository
 {
-    private readonly CustomerDbContext _context;
+    private readonly DataContext _context;
 
-    public OrderItemRepository(CustomerDbContext context)
+    public OrderItemRepository(DataContext context)
     {
         _context = context;
     }
 
-    public OrderItem GetById(int id) => _context.OrderItems.Find(id);
+    public OrderItemEntity GetById(int id) => _context.OrderItems.Find(id);
 
-    public IEnumerable<OrderItem> GetAll() => _context.OrderItems.ToList();
+    public IEnumerable<OrderItemEntity> GetAll() => _context.OrderItems.ToList();
 
-    public void Add(OrderItem orderItem)
+    public void Add(OrderItemEntity orderItem)
     {
         _context.OrderItems.Add(orderItem);
         _context.SaveChanges();
     }
 
-    public void Update(OrderItem orderItem)
+    public void Update(OrderItemEntity orderItem)
     {
         _context.OrderItems.Update(orderItem);
         _context.SaveChanges();

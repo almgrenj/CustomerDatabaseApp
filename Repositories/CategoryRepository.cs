@@ -1,28 +1,28 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 public class CategoryRepository : ICategoryRepository
 {
-    private readonly CustomerDbContext _context;
+    private readonly DataContext _context;
 
-    public CategoryRepository(CustomerDbContext context)
+    public CategoryRepository(DataContext context)
     {
         _context = context;
     }
 
-    public Category GetById(int id) => _context.Categories.Find(id);
+    public CategoryEntity GetById(int id) => _context.Categories.Find(id);
 
-    public IEnumerable<Category> GetAll() => _context.Categories.ToList();
+    public IEnumerable<CategoryEntity> GetAll() => _context.Categories.ToList();
 
-    public void Add(Category category)
+    public void Add(CategoryEntity category)
     {
         _context.Categories.Add(category);
         _context.SaveChanges();
     }
 
-    public void Update(Category category)
+    public void Update(CategoryEntity category)
     {
         _context.Categories.Update(category);
         _context.SaveChanges();

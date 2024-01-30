@@ -1,7 +1,7 @@
-﻿using CustomerDatabaseApp.Models;
-using CustomerDatabaseApp.Services;
-using CustomerDatabaseApp.Repositories.Interfaces; 
+﻿using CustomerDatabaseApp.Services;
+using CustomerDatabaseApp.Repositories.Interfaces;
 using System.Collections.Generic;
+using CustomerDatabaseApp.Entities;
 
 public class ProductService : IProductService
 {
@@ -12,19 +12,19 @@ public class ProductService : IProductService
         _productRepository = productRepository;
     }
 
-    public void AddProduct(Product product)
+    public void AddProduct(ProductEntity product)
     {
      
         _productRepository.Add(product);
     }
 
-    public Product GetProduct(int id)
+    public ProductEntity GetProduct(int id)
     {
      
         return _productRepository.GetById(id);
     }
 
-    public void UpdateProduct(Product product)
+    public void UpdateProduct(ProductEntity product)
     {
       
         _productRepository.Update(product);
@@ -36,7 +36,7 @@ public class ProductService : IProductService
         _productRepository.Delete(id);
     }
 
-    public IEnumerable<Product> GetAllProducts()
+    public IEnumerable<ProductEntity> GetAllProducts()
     {
         
         return _productRepository.GetAll();

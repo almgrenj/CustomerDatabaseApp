@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace CustomerDatabaseApp.Models
+namespace CustomerDatabaseApp.Entities
 {
-    public class Category
+    public class CategoryEntity
     {
         [Key]
         public int CategoryId { get; set; }
@@ -14,6 +14,6 @@ namespace CustomerDatabaseApp.Models
 
         public string? Description { get; set; }
 
-        public List<Product> Products { get; set; }
+        public List<ProductEntity> Products { get; set; }
     }
 }

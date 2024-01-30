@@ -1,15 +1,15 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using System.Collections.Generic;
 
-namespace CustomerDatabaseApp.Repositories.Interfaces 
+namespace CustomerDatabaseApp.Repositories.Interfaces
 {
 
     public interface IProductRepository
 {
-    Product GetById(int id);
-    IEnumerable<Product> GetAll();
-    void Add(Product product);
-    void Update(Product product);
+    ProductEntity GetById(int id);
+    IEnumerable<ProductEntity> GetAll();
+    void Add(ProductEntity product);
+    void Update(ProductEntity product);
     void Delete(int id);
 }
 }

@@ -1,14 +1,14 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using System.Collections.Generic;
 
 namespace CustomerDatabaseApp.Services
 {
     public interface ICategoryService
     {
-        void AddCategory(Category category);
-        Category GetCategory(int id);
-        void UpdateCategory(Category category);
+        void AddCategory(CategoryEntity category);
+        CategoryEntity GetCategory(int id);
+        void UpdateCategory(CategoryEntity category);
         void DeleteCategory(int id);
-        IEnumerable<Category> GetAllCategories();
+        IEnumerable<CategoryEntity> GetAllCategories();
     }
 }

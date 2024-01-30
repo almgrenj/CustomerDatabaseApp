@@ -1,4 +1,4 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using CustomerDatabaseApp.Services;
 using System.Collections.Generic;
@@ -12,17 +12,17 @@ public class OrderItemService : IOrderItemService
         _orderItemRepository = orderItemRepository;
     }
 
-    public void AddOrderItem(OrderItem orderItem)
+    public void AddOrderItem(OrderItemEntity orderItem)
     {
         _orderItemRepository.Add(orderItem);
     }
 
-    public OrderItem GetOrderItem(int id)
+    public OrderItemEntity GetOrderItem(int id)
     {
         return _orderItemRepository.GetById(id);
     }
 
-    public void UpdateOrderItem(OrderItem orderItem)
+    public void UpdateOrderItem(OrderItemEntity orderItem)
     {
         _orderItemRepository.Update(orderItem);
     }
@@ -32,7 +32,7 @@ public class OrderItemService : IOrderItemService
         _orderItemRepository.Delete(id);
     }
 
-    public IEnumerable<OrderItem> GetAllOrderItems()
+    public IEnumerable<OrderItemEntity> GetAllOrderItems()
     {
         return _orderItemRepository.GetAll();
     }

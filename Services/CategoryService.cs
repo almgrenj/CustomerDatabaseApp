@@ -1,4 +1,4 @@
-﻿using CustomerDatabaseApp.Models;
+﻿using CustomerDatabaseApp.Entities;
 using CustomerDatabaseApp.Repositories.Interfaces;
 using CustomerDatabaseApp.Services;
 using System.Collections.Generic;
@@ -12,17 +12,17 @@ public class CategoryService : ICategoryService
         _categoryRepository = categoryRepository;
     }
 
-    public void AddCategory(Category category)
+    public void AddCategory(CategoryEntity category)
     {
         _categoryRepository.Add(category);
     }
 
-    public Category GetCategory(int id)
+    public CategoryEntity GetCategory(int id)
     {
         return _categoryRepository.GetById(id);
     }
 
-    public void UpdateCategory(Category category)
+    public void UpdateCategory(CategoryEntity category)
     {
         _categoryRepository.Update(category);
     }
@@ -32,7 +32,7 @@ public class CategoryService : ICategoryService
         _categoryRepository.Delete(id);
     }
 
-    public IEnumerable<Category> GetAllCategories()
+    public IEnumerable<CategoryEntity> GetAllCategories()
     {
         return _categoryRepository.GetAll();
     }

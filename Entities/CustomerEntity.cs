@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CustomerDatabaseApp.Models
+namespace CustomerDatabaseApp.Entities
 {
-    public class Customer
+    public class CustomerEntity
     {
         [Key]
         public int CustomerId { get; set; }
@@ -11,12 +11,12 @@ namespace CustomerDatabaseApp.Models
         public string Name { get; set; }
 
         [MaxLength(200)]
-        public string? Address { get; set; } 
+        public string? Address { get; set; }
 
         [MaxLength(50)]
-        public string? Phone { get; set; }   
+        public string? Phone { get; set; }
 
         [MaxLength(100)]
-        public string? Email { get; set; }   
+        public string? Email { get; set; }
     }
 }

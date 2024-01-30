@@ -1,16 +1,16 @@
-﻿using CustomerDatabaseApp.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CustomerDatabaseApp.Services;
+using CustomerDatabaseApp.Entities;
 
 
 namespace CustomerDatabaseApp.Services
 {
     public interface IOrderService
     {
-        void AddOrder(Order order);
-        Order GetOrder(int id);
-        void UpdateOrder(Order order);
+        void AddOrder(OrderEntity order);
+        OrderEntity GetOrder(int id);
+        void UpdateOrder(OrderEntity order);
         void DeleteOrder(int id);
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<OrderEntity> GetAllOrders();
     }
 }
